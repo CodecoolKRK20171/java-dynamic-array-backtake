@@ -40,8 +40,8 @@ public class DynamicIntArray {
     public void insert(int index, int element) {
         Object temp;
 
-        if (index > this.array.length || index < 0) {
-            throw new ArrayIndexOutOfBoundsException();
+        if (index > this.array.length || index < 0) {   //Nie przechodzi i nie powinno przechodzić testu, w którym
+            throw new ArrayIndexOutOfBoundsException(); //podawany jest index wiekszy od rozmiaru listy
         } else {
             increaseList();
             for (int i = this.array.length-1; i > index; i--){
