@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class DynamicIntArray {
     
     private Object[] array;
-    private int slotForElement = 0;
+    private int takenSlots = 0;
 
     public DynamicIntArray(int size){
         if (size < 0) throw new IllegalArgumentException("Cannot accept negative size");
@@ -17,10 +17,12 @@ public class DynamicIntArray {
     }
 
     public void add(int i) {
-        if (array.length - slotForElement == 0) {
+        int availableSlots = array.length;
+
+        if (availableSlots - takenSlots == 0) {
             increaseList();
         }
-        this.array[slotForElement++] = i;
+        this.array[takenSlots++] = i;
     }
 
     public void remove(int index) {
